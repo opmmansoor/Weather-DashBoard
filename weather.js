@@ -60,15 +60,15 @@ function loadFavorites() {
     favouriteList.innerHTML = "";
 
     favorites.forEach(city => {
-        favouriteList.innerHTML += `
-            <div class="favorite-item">
-                ${city}
-                 <button class="fav-delBtn">
+    favouriteList.innerHTML += `
+        <div class="favorite-item">
+            ${city}
+            <button class="fav-delBtn" onclick="removeFavorite('${city}')">
                 <img src="del.png" alt="">
-             </button>
-            </div>
-        `;
-    });
+            </button>
+        </div>
+    `;
+});
 }
 
 loadFavorites();
@@ -83,9 +83,7 @@ favoriteBtn.addEventListener("click", () => {
 
 //Delete favorite city
 function removeFavorite(city) {
-    let favorites = JSON.parse(
-        localStorage.getItem("favorites")
-    ) || [];
+    let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
     favorites = favorites.filter(
         fav => fav !== city
@@ -95,4 +93,6 @@ function removeFavorite(city) {
         "favorites",
         JSON.stringify(favorites)
     );
+
+    loadFavorites();   // refresh list
 }
