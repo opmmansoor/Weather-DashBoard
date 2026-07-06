@@ -7,7 +7,19 @@ let searchBtn = document.querySelector(".btn");
 //let favourites = document.getElementsByClassName("favorateBtn");
 const favoriteBtn = document.querySelector(".favorateBtn");
 let favouriteList = document.querySelector(".fav-list")
+let theme = document.getElementById("themeBtn")
 
+
+
+//THEME
+theme.addEventListener ('click',function() {
+    document.body.classList.toggle("dark-mode");
+    if (document.body.classList.contains("dark-mode")){
+        theme.textContent = "☀️ light" ;
+    }else{
+        theme.textContent = "🌙 dark"
+    }
+});
 
 // Fetch API
 
@@ -28,12 +40,17 @@ searchBtn.addEventListener("click",() =>{
     checkWeather(searchBox.value)
 })
 
-searchBox.addEventListener("keyup",(e) => {
-    if (e.key == "Enter"){
+let debounceTimer;
+searchBox.addEventListener("input",() => {
+    clearTimeout(debounceTimer);
+
+    debounceTimer = setTimeout(() => {
+    if (searchBox.value.trim() !== ""){
         checkWeather(searchBox.value)
     }
+   },500) 
 })
-checkWeather();
+//checkWeather();
 
 
 //add City to favourite
