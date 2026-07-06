@@ -8,7 +8,7 @@ body{
     height: 100vh;
     width: 100vw;
     /* qverflow: hidden; */
-    background: #03be9f;
+    background: #ffffff;
     display: flex;
     justify-content: center;
 }
@@ -24,13 +24,19 @@ body{
     text-align: center;
     
 }
-#theme{
+body.dark-mode{
+    background: black;
+}
+
+
+#themeBtn{
     margin: 10px;
     border: none;
     outline: none; 
     height: 30px;
     width: 60px;
     border-radius: 20px;
+    gap : 10px;
 }
 #search {
     width: 90%;
@@ -72,18 +78,19 @@ body{
     margin-top: 30px;
 }
 .weather h1{
-    font-size: 60px;
-    font-weight: 450;
+    font-size: 55px;
+    font-weight: 400;
+    margin-top: -10px;
 }
 .weather h2{
     font-size: 45px;
-    font-weight: 400;
+    font-weight: 300;
     margin-top: -10px;
 }
 .Description{
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
-    padding: 8px;
+    padding: 2px;
 }
 
 .favorateBtn{
@@ -106,19 +113,30 @@ body{
     gap: 15px;
 }
 .fav-listing{
+    
     display: flex;
+    /* justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px; */
     align-content: center;
+    justify-content: center;
 }
 .fav-list{
-    width: 100%;
+    max-height: 40px;
+    overflow-y: auto;
+    width: 50%;
     text-align: center;
     font-size: 15px;
     display: flex;
     flex-direction: column;
-   
+    align-items: center;
+    gap: 5px;
+    margin-top: 5px;
+    
 }
 .favorite-item{
     display: flex;
+    gap: 25px;
     justify-content: space-between;
 }
 .fav-delBtn{
@@ -126,13 +144,13 @@ body{
     outline: none;
     background-color: rgb(62, 61, 61);
     border-radius: 50%;
-    width: 10PX;
-    height: 10PX;
-    
+    width: 12PX;
+    height: 12PX;
     cursor: poi1nter;
 }
 .fav-delBtn img{
-    width: 14px;
+    width: 15px;
+    height: 15px;
 }
 .details {
     display: flex;
@@ -140,7 +158,7 @@ body{
     justify-content: space-between;
     padding: 0 20px;
     padding-bottom: 10px;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 .humidity{
     font-size: 30px;
